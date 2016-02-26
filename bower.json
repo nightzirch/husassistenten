@@ -1,0 +1,23 @@
+{
+	"name": "husassistenten",
+	"description": "",
+	"main": "keystone.js",
+	"authors": [
+		"Christian Grimsgaard <mail@christiangrimsgaard.net>"
+	],
+	"license": "MIT",
+	"homepage": "https://github.com/nightzirch/husassistenten",
+	"moduleType": [
+		"node"
+	],
+		"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
+	"dependencies": {
+		"bootstrap": "4.0.0-alpha.2"
+	}
+}

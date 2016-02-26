@@ -1,16 +1,20 @@
-var gulp = require('gulp');
-var jshint = require('gulp-jshint');
-var jshintReporter = require('jshint-stylish');
-var watch = require('gulp-watch');
-var shell = require('gulp-shell')
-
-var sass = require('gulp-sass');
-
+var bower = require('gulp-bower'),
+	gulp = require('gulp'),
+	jshint = require('gulp-jshint'),
+	jshintReporter = require('jshint-stylish'),
+	notify = require('gulp-notify'),
+	sass = require('gulp-sass'),
+	shell = require('gulp-shell'),
+	watch = require('gulp-watch');
 
 var paths = {
-	'src':['./models/**/*.js','./routes/**/*.js', 'keystone.js', 'package.json']
-
-,
+	'bower': './bower_components',
+	'src': [
+		'./models/**/*.js',
+		'./routes/**/*.js',
+		'keystone.js',
+		'package.json'
+	],
 	'style': {
 		all: './public/styles/**/*.scss',
 		output: './public/styles/'
@@ -41,13 +45,15 @@ gulp.task('sass', function(){
 		.pipe(gulp.dest(paths.style.output));
 });
 
+gulp.task('bower', function(){
+	return bower()
+		.pipe(gulp.dest(paths.bower))
+});
 
 gulp.task('runKeystone', shell.task('node keystone.js'));
 gulp.task('watch', [
-
-  'watch:sass',
-
-  'watch:lint'
+	'watch:sass',
+	'watch:lint'
 ]);
 
 gulp.task('default', ['watch', 'runKeystone']);
