@@ -9,9 +9,16 @@ exports.initLocals = function(req, res, next) {
 
 	var locals = res.locals;
 
-	locals.navLinks = [
-		{ label: 'Home',		key: 'home',		href: '/' }
-	];
+	locals.navLinks = {
+		left: [
+			{ label: 'Bestill',				key: 'order',		href: '/bestill' },
+			{ label: 'Tjenester og priser',	key: 'services',	href: '/tjenester' }
+		],
+		right: [
+			{ label: 'Om Husassistenten',	key: 'about',		href: '/om-husassistenten' },
+			{ label: 'Kundesenter',			key: 'faq',			href: '/sporsmal-og-svar' }
+		]
+	};
 
 	locals.user = req.user;
 
