@@ -5,7 +5,8 @@ var bower = require('gulp-bower'),
 	notify = require('gulp-notify'),
 	sass = require('gulp-sass'),
 	shell = require('gulp-shell'),
-	watch = require('gulp-watch');
+	watch = require('gulp-watch'),
+	livereload = require('gulp-livereload');
 
 var paths = {
 	'bower': './bower_components',
@@ -26,23 +27,27 @@ var paths = {
 gulp.task('lint', function(){
 	gulp.src(paths.src)
 		.pipe(jshint())
-		.pipe(jshint.reporter(jshintReporter));
+		.pipe(jshint.reporter(jshintReporter))
+		.pipe(livereload());
 });
 
 // gulp watcher for lint
 gulp.task('watch:lint', function () {
+	livereload.listen();
 	gulp.watch(paths.src, ['lint']);
 });
 
 
 gulp.task('watch:sass', function () {
+	livereload.listen();
 	gulp.watch(paths.style.all, ['sass']);
 });
 
 gulp.task('sass', function(){
 	gulp.src(paths.style.all)
 		.pipe(sass().on('error', sass.logError))
-		.pipe(gulp.dest(paths.style.output));
+		.pipe(gulp.dest(paths.style.output))
+		.pipe(livereload());
 });
 
 gulp.task('bower', function(){
