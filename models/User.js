@@ -13,25 +13,20 @@ User.add({
 	email: { type: Types.Email, initial: true, required: true, index: true },
 	password: { type: Types.Password, initial: true, required: true }
 }, 'Permissions', {
-	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true }
+	isAdmin: { type: Boolean, index: true },
+	isAssistant: { type: Boolean, index: true },
+	isCustomer: { type: Boolean, index: true }
 });
 
-// Provide access to Keystone
 User.schema.virtual('canAccessKeystone').get(function() {
 	return this.isAdmin;
 });
 
-
-/**
- * Relationships
- */
-
-User.relationship({ ref: 'Post', path: 'posts', refPath: 'author' });
-
-
-/**
- * Registration
- */
+User.relationship(
+	{ ref: 'Post', path: 'posts', refPath: 'author' },
+	{ ref: 'Job', path: 'jobs', refPath: 'assistant' },
+	{ ref: 'Job', path: 'jobs', refPath: 'customer' }
+);
 
 User.defaultColumns = 'name, email, isAdmin';
 User.register();
