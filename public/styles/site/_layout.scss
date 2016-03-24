@@ -1,16 +1,55 @@
-#header {
-	margin-top: 30px;
-}
+html, body {
+	background-color: #fdf8f2;
 
-#footer {
-	margin-top: 30px;
-	border-top: 1px solid #eeeeee;
-	padding-top: 30px;
-	color: #777777;
-}
+	#header {
+		margin-top: 50px;
 
-.gallery-image img{
-    display: block;
-    max-width: 100%;
-    height: auto;
+		.navbar-retro {
+			background-color: #ca5f4e;
+			color: #fff;
+			border-radius: 0px;
+
+			.navbar-retro-brand {
+				position: absolute;
+				margin-top: -40px;
+			}
+
+			ul li {
+				a {
+					color: #fff;
+				}
+
+				&.active  a{
+					background-color: #ea725f;
+				}
+			}
+		}
+	}
+
+	#body {
+		margin-top: 50px;
+
+		section#body-header {
+			background: url('/images/forget-everything.jpg') top center no-repeat;
+			background-size: cover;
+			min-height: 500px;
+
+			h1#body-header-title {
+				width: 50%;
+			}
+		}
+	}
+
+	#footer {
+		margin-top: 30px;
+		border-top: 1px solid #eeeeee;
+		padding-top: 30px;
+		color: #777777;
+	}
+
+	.gallery-image img{
+	    display: block;
+	    max-width: 100%;
+	    height: auto;
+	}
 }

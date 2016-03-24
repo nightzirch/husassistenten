@@ -5821,16 +5821,35 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
-#header {
-  margin-top: 30px; }
-
-#footer {
-  margin-top: 30px;
-  border-top: 1px solid #eeeeee;
-  padding-top: 30px;
-  color: #777777; }
-
-.gallery-image img {
-  display: block;
-  max-width: 100%;
-  height: auto; }
+html, body {
+  background-color: #fdf8f2; }
+  html #header, body #header {
+    margin-top: 50px; }
+    html #header .navbar-retro, body #header .navbar-retro {
+      background-color: #ca5f4e;
+      color: #fff;
+      border-radius: 0px; }
+      html #header .navbar-retro .navbar-retro-brand, body #header .navbar-retro .navbar-retro-brand {
+        position: absolute;
+        margin-top: -40px; }
+      html #header .navbar-retro ul li a, body #header .navbar-retro ul li a {
+        color: #fff; }
+      html #header .navbar-retro ul li.active a, body #header .navbar-retro ul li.active a {
+        background-color: #ea725f; }
+  html #body, body #body {
+    margin-top: 50px; }
+    html #body section#body-header, body #body section#body-header {
+      background: url("/images/forget-everything.jpg") top center no-repeat;
+      background-size: cover;
+      min-height: 500px; }
+      html #body section#body-header h1#body-header-title, body #body section#body-header h1#body-header-title {
+        width: 50%; }
+  html #footer, body #footer {
+    margin-top: 30px;
+    border-top: 1px solid #eeeeee;
+    padding-top: 30px;
+    color: #777777; }
+  html .gallery-image img, body .gallery-image img {
+    display: block;
+    max-width: 100%;
+    height: auto; }
